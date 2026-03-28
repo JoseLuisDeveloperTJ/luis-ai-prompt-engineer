@@ -4,7 +4,12 @@ import heroBg from '@/assets/hero-bg.jpg';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: 'var(--gradient-hero)' }}>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <img src={heroBg} alt="" className="w-full h-full object-cover opacity-30" width={1920} height={1080} />
+        <div className="absolute inset-0 bg-background/70" />
+      </div>
       {/* Grid pattern */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: 'linear-gradient(hsl(160,84%,39%) 1px, transparent 1px), linear-gradient(90deg, hsl(160,84%,39%) 1px, transparent 1px)',
