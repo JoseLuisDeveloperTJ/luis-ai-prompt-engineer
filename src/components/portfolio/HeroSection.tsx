@@ -1,5 +1,6 @@
 import { Brain, ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import heroBg from '@/assets/hero-bg.jpg';
 
 export default function HeroSection() {
   return (
