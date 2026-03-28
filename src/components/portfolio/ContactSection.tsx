@@ -1,22 +1,35 @@
-import { Mail, Github, Linkedin, Send } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, Phone, MapPin, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { useContactInfo } from '@/hooks/useSiteContent';
+
+const iconMap: Record<string, any> = {
+  email: Mail, github: Github, linkedin: Linkedin, phone: Phone,
+  location: MapPin, twitter: Globe, website: Globe,
+};
+
+const defaultContacts = [
+  { key: 'email', value: 'hello@aidev.com' },
+  { key: 'github', value: 'github.com/yourusername' },
+  { key: 'linkedin', value: 'linkedin.com/in/yourusername' },
+];
 
 export default function ContactSection() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const { toast } = useToast();
+  const { data: dbContacts } = useContactInfo();
+
+  const contacts = dbContacts && dbContacts.length > 0 ? dbContacts : defaultContacts;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: 'Message sent!', description: 'Thanks for reaching out. I\'ll get back to you soon.' });
-    setName('');
-    setEmail('');
-    setMessage('');
+    toast({ title: 'Message sent!', description: "Thanks for reaching out. I'll get back to you soon." });
+    setName(''); setEmail(''); setMessage('');
   };
 
   return (
@@ -33,49 +46,27 @@ export default function ContactSection() {
               Interested in collaborating or have a project in mind? Drop me a message!
             </p>
             <div className="space-y-4">
-              {[
-                { icon: Mail, label: 'hello@aidev.com' },
-                { icon: Github, label: 'github.com/yourusername' },
-                { icon: Linkedin, label: 'linkedin.com/in/yourusername' },
-              ].map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-center gap-3 text-muted-foreground">
-                  <Icon className="h-5 w-5 text-primary" />
-                  <span className="text-sm font-mono">{label}</span>
-                </div>
-              ))}
+              {contacts.map((c) => {
+                const Icon = iconMap[c.key] || Globe;
+                return (
+                  <div key={c.key} className="flex items-center gap-3 text-muted-foreground">
+                    <Icon className="h-5 w-5 text-primary" />
+                    <span className="text-sm font-mono">{c.value}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            <Input
-              placeholder="Your Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              maxLength={100}
-              className="bg-card border-border/50 focus:border-primary"
-            />
-            <Input
-              type="email"
-              placeholder="Your Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              maxLength={255}
-              className="bg-card border-border/50 focus:border-primary"
-            />
-            <Textarea
-              placeholder="Your Message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              required
-              maxLength={1000}
-              rows={5}
-              className="bg-card border-border/50 focus:border-primary resize-none"
-            />
+            <Input placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)}
+              required maxLength={100} className="bg-card border-border/50 focus:border-primary" />
+            <Input type="email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)}
+              required maxLength={255} className="bg-card border-border/50 focus:border-primary" />
+            <Textarea placeholder="Your Message" value={message} onChange={(e) => setMessage(e.target.value)}
+              required maxLength={1000} rows={5} className="bg-card border-border/50 focus:border-primary resize-none" />
             <Button type="submit" variant="hero">
-              <Send className="h-4 w-4 mr-2" />
-              Send Message
+              <Send className="h-4 w-4 mr-2" /> Send Message
             </Button>
           </form>
         </div>

@@ -2,26 +2,21 @@ import { useEffect } from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarProvider,
-  SidebarTrigger,
-  useSidebar,
+  Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel,
+  SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger, useSidebar,
 } from '@/components/ui/sidebar';
 import { NavLink } from '@/components/NavLink';
-import { LayoutDashboard, Upload, LogOut, Terminal, Home } from 'lucide-react';
+import { LayoutDashboard, Upload, LogOut, Terminal, Home, Briefcase, Wrench, Mail, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
 const menuItems = [
   { title: 'Overview', url: '/dashboard', icon: LayoutDashboard },
   { title: 'Upload Projects', url: '/dashboard/upload', icon: Upload },
+  { title: 'Experience', url: '/dashboard/experience', icon: Briefcase },
+  { title: 'Skills & Education', url: '/dashboard/skills', icon: Wrench },
+  { title: 'About Me', url: '/dashboard/about', icon: User },
+  { title: 'Contact Info', url: '/dashboard/contact', icon: Mail },
 ];
 
 function DashboardSidebar() {

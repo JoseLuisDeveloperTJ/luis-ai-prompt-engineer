@@ -1,27 +1,17 @@
+import { useExperience } from '@/hooks/useSiteContent';
 import { Briefcase } from 'lucide-react';
 
-const experiences = [
-  {
-    role: 'Senior AI Engineer',
-    company: 'Your Company',
-    period: '2023 — Present',
-    description: 'Leading AI/ML initiatives, building production LLM applications and scalable ML pipelines.',
-  },
-  {
-    role: 'Machine Learning Engineer',
-    company: 'Previous Company',
-    period: '2021 — 2023',
-    description: 'Developed computer vision models, NLP solutions, and deployed ML models to production.',
-  },
-  {
-    role: 'Data Scientist',
-    company: 'First Company',
-    period: '2019 — 2021',
-    description: 'Built predictive models, performed data analysis, and created dashboards for business insights.',
-  },
+const fallbackExperiences = [
+  { id: '1', role: 'Senior AI Engineer', company: 'Your Company', period: '2023 — Present', description: 'Leading AI/ML initiatives.' },
+  { id: '2', role: 'ML Engineer', company: 'Previous Company', period: '2021 — 2023', description: 'Developed CV and NLP solutions.' },
 ];
 
 export default function ExperienceSection() {
+  const { data: dbItems } = useExperience();
+  const experiences = dbItems && dbItems.length > 0
+    ? dbItems.map((e) => ({ id: e.id, role: e.job_title, company: e.company, period: e.period, description: e.description || '' }))
+    : fallbackExperiences;
+
   return (
     <section id="experience" className="py-24">
       <div className="container mx-auto px-6">
@@ -31,12 +21,10 @@ export default function ExperienceSection() {
         <div className="w-16 h-1 bg-primary rounded mb-12" />
 
         <div className="relative">
-          {/* Timeline line */}
           <div className="absolute left-6 top-0 bottom-0 w-px bg-border md:left-1/2" />
-
           <div className="space-y-12">
             {experiences.map((exp, i) => (
-              <div key={i} className={`relative flex flex-col md:flex-row gap-8 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+              <div key={exp.id} className={`relative flex flex-col md:flex-row gap-8 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                 <div className="flex-1 md:text-right">
                   {i % 2 === 0 && (
                     <div className="pl-16 md:pl-0 md:pr-12">
@@ -44,10 +32,7 @@ export default function ExperienceSection() {
                     </div>
                   )}
                 </div>
-
-                {/* Dot */}
                 <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary glow mt-6" />
-
                 <div className="flex-1">
                   {i % 2 !== 0 && (
                     <div className="pl-16 md:pl-12">
@@ -64,7 +49,7 @@ export default function ExperienceSection() {
   );
 }
 
-function ExperienceCard({ role, company, period, description }: typeof experiences[0]) {
+function ExperienceCard({ role, company, period, description }: { role: string; company: string; period: string; description: string }) {
   return (
     <div className="p-6 rounded-xl card-gradient border border-border/50 hover:border-primary/30 transition-colors">
       <div className="flex items-center gap-2 text-primary text-sm font-mono mb-2">

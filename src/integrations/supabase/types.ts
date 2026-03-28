@@ -14,6 +14,155 @@ export type Database = {
   }
   public: {
     Tables: {
+      about_me: {
+        Row: {
+          content: string
+          created_at: string
+          highlights: Json | null
+          id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          content?: string
+          created_at?: string
+          highlights?: Json | null
+          id?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          highlights?: Json | null
+          id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      contact_info: {
+        Row: {
+          created_at: string
+          id: string
+          key: string
+          sort_order: number
+          user_id: string
+          value: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          key: string
+          sort_order?: number
+          user_id: string
+          value: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          key?: string
+          sort_order?: number
+          user_id?: string
+          value?: string
+        }
+        Relationships: []
+      }
+      education: {
+        Row: {
+          created_at: string
+          degree: string
+          id: string
+          school: string
+          sort_order: number
+          user_id: string
+          year: string
+        }
+        Insert: {
+          created_at?: string
+          degree: string
+          id?: string
+          school: string
+          sort_order?: number
+          user_id: string
+          year: string
+        }
+        Update: {
+          created_at?: string
+          degree?: string
+          id?: string
+          school?: string
+          sort_order?: number
+          user_id?: string
+          year?: string
+        }
+        Relationships: []
+      }
+      experience: {
+        Row: {
+          company: string
+          created_at: string
+          description: string | null
+          id: string
+          job_title: string
+          period: string
+          sort_order: number
+          user_id: string
+        }
+        Insert: {
+          company?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          job_title: string
+          period: string
+          sort_order?: number
+          user_id: string
+        }
+        Update: {
+          company?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          job_title?: string
+          period?: string
+          sort_order?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      project_images: {
+        Row: {
+          created_at: string
+          id: string
+          image_url: string
+          project_id: string
+          sort_order: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          image_url: string
+          project_id: string
+          sort_order?: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          image_url?: string
+          project_id?: string
+          sort_order?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "project_images_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "projects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       projects: {
         Row: {
           cover_type: string | null
@@ -74,6 +223,33 @@ export type Database = {
           referrer?: string | null
           user_agent?: string | null
           visited_at?: string
+        }
+        Relationships: []
+      }
+      skills: {
+        Row: {
+          category: string
+          created_at: string
+          id: string
+          name: string
+          sort_order: number
+          user_id: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          id?: string
+          name: string
+          sort_order?: number
+          user_id: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          id?: string
+          name?: string
+          sort_order?: number
+          user_id?: string
         }
         Relationships: []
       }
