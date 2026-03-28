@@ -14,7 +14,69 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      projects: {
+        Row: {
+          cover_type: string | null
+          cover_url: string | null
+          created_at: string
+          description: string | null
+          github_link: string | null
+          id: string
+          name: string
+          skills: string[] | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          cover_type?: string | null
+          cover_url?: string | null
+          created_at?: string
+          description?: string | null
+          github_link?: string | null
+          id?: string
+          name: string
+          skills?: string[] | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          cover_type?: string | null
+          cover_url?: string | null
+          created_at?: string
+          description?: string | null
+          github_link?: string | null
+          id?: string
+          name?: string
+          skills?: string[] | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      site_visits: {
+        Row: {
+          id: string
+          page: string
+          referrer: string | null
+          user_agent: string | null
+          visited_at: string
+        }
+        Insert: {
+          id?: string
+          page?: string
+          referrer?: string | null
+          user_agent?: string | null
+          visited_at?: string
+        }
+        Update: {
+          id?: string
+          page?: string
+          referrer?: string | null
+          user_agent?: string | null
+          visited_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
