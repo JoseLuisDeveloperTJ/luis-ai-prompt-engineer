@@ -14,6 +14,7 @@ import ManageExperience from "./pages/ManageExperience";
 import ManageSkillsEducation from "./pages/ManageSkillsEducation";
 import ManageAbout from "./pages/ManageAbout";
 import ManageContact from "./pages/ManageContact";
+import ManageCertifications from "./pages/ManageCertifications";
 import ProjectDetail from "./pages/ProjectDetail";
 import NotFound from "./pages/NotFound";
 
