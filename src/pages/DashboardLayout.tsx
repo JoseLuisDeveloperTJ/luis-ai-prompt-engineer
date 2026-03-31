@@ -17,6 +17,7 @@ const menuItems = [
   { title: 'Skills & Education', url: '/dashboard/skills', icon: Wrench },
   { title: 'About Me', url: '/dashboard/about', icon: User },
   { title: 'Contact Info', url: '/dashboard/contact', icon: Mail },
+  { title: 'Certifications', url: '/dashboard/certifications', icon: Award },
 ];
 
 function DashboardSidebar() {
