@@ -7,6 +7,7 @@ import SkillsSection from '@/components/portfolio/SkillsSection';
 import EducationSection from '@/components/portfolio/EducationSection';
 import ContactSection from '@/components/portfolio/ContactSection';
 import Footer from '@/components/portfolio/Footer';
+import ScrollReveal from '@/components/portfolio/ScrollReveal';
 import { useTrackVisit } from '@/hooks/useTrackVisit';
 
 export default function Index() {
@@ -16,12 +17,24 @@ export default function Index() {
     <div className="min-h-screen">
       <PortfolioHeader />
       <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <ExperienceSection />
-      <SkillsSection />
-      <EducationSection />
-      <ContactSection />
+      <ScrollReveal>
+        <AboutSection />
+      </ScrollReveal>
+      <ScrollReveal>
+        <ProjectsSection />
+      </ScrollReveal>
+      <ScrollReveal>
+        <ExperienceSection />
+      </ScrollReveal>
+      <ScrollReveal>
+        <SkillsSection />
+      </ScrollReveal>
+      <ScrollReveal>
+        <EducationSection />
+      </ScrollReveal>
+      <ScrollReveal>
+        <ContactSection />
+      </ScrollReveal>
       <Footer />
     </div>
   );
