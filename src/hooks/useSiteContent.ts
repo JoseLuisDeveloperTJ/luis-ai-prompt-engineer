@@ -72,6 +72,20 @@ export function useAboutMe() {
   });
 }
 
+export function useCertifications() {
+  return useQuery({
+    queryKey: ['certifications'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('certifications')
+        .select('*')
+        .order('sort_order', { ascending: true });
+      if (error) throw error;
+      return data;
+    },
+  });
+}
+
 export function useProjectImages(projectId: string) {
   return useQuery({
     queryKey: ['project-images', projectId],

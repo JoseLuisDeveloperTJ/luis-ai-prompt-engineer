@@ -6,7 +6,7 @@ import {
   SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger, useSidebar,
 } from '@/components/ui/sidebar';
 import { NavLink } from '@/components/NavLink';
-import { LayoutDashboard, Upload, LogOut, Terminal, Home, Briefcase, Wrench, Mail, User } from 'lucide-react';
+import { LayoutDashboard, Upload, LogOut, Terminal, Home, Briefcase, Wrench, Mail, User, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
@@ -17,6 +17,7 @@ const menuItems = [
   { title: 'Skills & Education', url: '/dashboard/skills', icon: Wrench },
   { title: 'About Me', url: '/dashboard/about', icon: User },
   { title: 'Contact Info', url: '/dashboard/contact', icon: Mail },
+  { title: 'Certifications', url: '/dashboard/certifications', icon: Award },
 ];
 
 function DashboardSidebar() {

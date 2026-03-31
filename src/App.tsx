@@ -14,6 +14,7 @@ import ManageExperience from "./pages/ManageExperience";
 import ManageSkillsEducation from "./pages/ManageSkillsEducation";
 import ManageAbout from "./pages/ManageAbout";
 import ManageContact from "./pages/ManageContact";
+import ManageCertifications from "./pages/ManageCertifications";
 import ProjectDetail from "./pages/ProjectDetail";
 import NotFound from "./pages/NotFound";
 
@@ -38,6 +39,7 @@ const App = () => (
               <Route path="skills" element={<ManageSkillsEducation />} />
               <Route path="about" element={<ManageAbout />} />
               <Route path="contact" element={<ManageContact />} />
+              <Route path="certifications" element={<ManageCertifications />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

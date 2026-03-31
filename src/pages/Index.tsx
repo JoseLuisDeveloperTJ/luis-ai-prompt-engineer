@@ -5,6 +5,7 @@ import ProjectsSection from '@/components/portfolio/ProjectsSection';
 import ExperienceSection from '@/components/portfolio/ExperienceSection';
 import SkillsSection from '@/components/portfolio/SkillsSection';
 import EducationSection from '@/components/portfolio/EducationSection';
+import CertificationsSection from '@/components/portfolio/CertificationsSection';
 import ContactSection from '@/components/portfolio/ContactSection';
 import Footer from '@/components/portfolio/Footer';
 import ScrollReveal from '@/components/portfolio/ScrollReveal';
@@ -31,6 +32,9 @@ export default function Index() {
       </ScrollReveal>
       <ScrollReveal>
         <EducationSection />
+      </ScrollReveal>
+      <ScrollReveal>
+        <CertificationsSection />
       </ScrollReveal>
       <ScrollReveal>
         <ContactSection />
