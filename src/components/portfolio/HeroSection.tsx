@@ -1,20 +1,11 @@
 import { Brain, ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroBg from '@/assets/hero-bg.jpg';
+import ParticleSphere from './ParticleSphere';
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <img src={heroBg} alt="" className="w-full h-full object-cover opacity-30" width={1920} height={1080} />
-        <div className="absolute inset-0 bg-background/70" />
-      </div>
-      {/* Grid pattern */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: 'linear-gradient(hsl(160,84%,39%) 1px, transparent 1px), linear-gradient(90deg, hsl(160,84%,39%) 1px, transparent 1px)',
-        backgroundSize: '60px 60px',
-      }} />
+      <ParticleSphere />
 
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 mb-8 animate-fade-in">
