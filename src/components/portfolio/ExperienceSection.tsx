@@ -90,9 +90,12 @@ export default function ExperienceSection() {
                 i % 2 !== 0 ? 'md:flex-row-reverse' : ''
               }`}
             >
-              <div className={`flex-1 w-full md:w-1/2 ${i % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:pl-16 md:text-left'}`}>
+          <div className={`flex-1 w-full md:w-1/2 ${i % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:pl-16 md:text-left'}`}>
                 <div className="pl-16 md:pl-0"> 
-          <ExperienceCard {...exp} isLeft={i % 2 === 0} />      </div>
+                  
+                    <ExperienceCard {...exp} isLeft={i % 2 === 0} />
+                
+                </div> 
               </div>
 
               <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary glow z-10" 
