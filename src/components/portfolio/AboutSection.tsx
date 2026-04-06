@@ -2,9 +2,9 @@ import { Code, Cpu, Sparkles } from 'lucide-react';
 import { useAboutMe } from '@/hooks/useSiteContent';
 
 const defaultHighlights = [
-  { icon: 'Cpu', title: 'Machine Learning', desc: 'Deep learning, NLP, computer vision' },
-  { icon: 'Code', title: 'Full Stack AI', desc: 'End-to-end ML system design' },
-  { icon: 'Sparkles', title: 'LLM Applications', desc: 'RAG, fine-tuning, prompt engineering' },
+  { icon: 'Cpu', title: 'Automations', desc: 'N8N, Power automate end to end pipelines' },
+  { icon: 'Code', title: 'Full Stack', desc: 'Web development, APIs, Software development' },
+  { icon: 'Sparkles', title: 'LLM Applications', desc: 'RAG, Few-shot, Chain of thought, Lang Chain' },
 ];
 
 const iconMap: Record<string, any> = { Cpu, Code, Sparkles };
