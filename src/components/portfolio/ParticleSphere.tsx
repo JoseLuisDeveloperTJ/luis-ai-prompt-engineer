@@ -55,10 +55,10 @@ function Sphere() {
         />
       </bufferGeometry>
       <pointsMaterial
-        size={0.02}
-        color="#012516"
+        size={0.05}
+        color="#10b981"
         transparent
-        opacity={0.1}
+        opacity={0.9}
         blending={THREE.AdditiveBlending}
         depthWrite={false}
         sizeAttenuation
@@ -69,7 +69,7 @@ function Sphere() {
 
 export default function ParticleSphere() {
   return (
-    <div className="absolute inset-0 -z-[1]">
+    <div className="absolute inset-0 z-0 pointer-events-none">
       <Canvas 
       camera={{ position: [0, 0, 5], fov: 55 }} 
       dpr={[1, 1.5]}
