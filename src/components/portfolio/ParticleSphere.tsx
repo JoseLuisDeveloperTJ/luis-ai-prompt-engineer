@@ -55,13 +55,8 @@ function Sphere() {
         />
       </bufferGeometry>
       <pointsMaterial
-<<<<<<< HEAD
         size={0.02}
         color="#03311e"
-=======
-        size={0.05}
-        color="#10b981"
->>>>>>> bcee24e20eed8fe3cd5e7aea48c84f11e0dbc18a
         transparent
         opacity={0.9}
         blending={THREE.AdditiveBlending}
