@@ -69,7 +69,7 @@ function Sphere() {
 
 export default function ParticleSphere() {
   return (
-    <div className="absolute inset-0 -z-[1] pointer-events-none">
+    <div className="absolute inset-0 z-0 pointer-events-none">
       <Canvas 
       camera={{ position: [0, 0, 5], fov: 55 }} 
       dpr={[1, 1.5]}
