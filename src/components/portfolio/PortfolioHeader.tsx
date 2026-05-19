@@ -20,7 +20,7 @@ export default function PortfolioHeader() {
       <div className="container mx-auto flex items-center justify-between h-16 px-6">
         <a href="#" className="flex items-center gap-2 text-primary font-bold text-lg">
           <Terminal className="h-5 w-5" />
-          <span className="font-mono text-sm">AI.engineer</span>
+          <span className="font-mono text-sm">AI Automator</span>
         </a>
 
         <nav className="hidden md:flex items-center gap-6">
